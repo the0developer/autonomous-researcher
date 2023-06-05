@@ -1,0 +1,7 @@
+pdf2image
+tabulate
+unstructured
+streamlit
+langchain
+openai
+python-dotenv
