@@ -8,7 +8,6 @@ import requests
 import json
 import streamlit as st
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
 SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
 
 # serp request to get list of news
@@ -133,10 +132,13 @@ def generate_thread(summaries, query):
 def main():
     load_dotenv(find_dotenv())
 
-    st.set_page_config(page_title="Generate twitter thread", page_icon=":bird:", layout="wide")
+    st.set_page_config(page_title="Generate twitter thread", page_icon=":bird:")
 
     st.header("Generate twitter thread :bird:")
+    openaiapi = st.text_input("OpenAI API Key")
     query = st.text_input("Topic of twitter thread")
+
+    openai.api_key = openaiapi
 
     if query:
         print(query)
